@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hareexpress">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/hareexpress_jar/hareexpress.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
