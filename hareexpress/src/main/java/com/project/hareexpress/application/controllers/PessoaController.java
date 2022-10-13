@@ -2,17 +2,14 @@ package com.project.hareexpress.application.controllers;
 
 import com.project.hareexpress.domain.interfaces.IPessoaService;
 import com.project.hareexpress.domain.models.Pessoa;
-import com.project.hareexpress.domain.services.PessoaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/pessoa")
 public class PessoaController {
 
@@ -20,50 +17,35 @@ public class PessoaController {
     private IPessoaService pessoaService;
 
     @GetMapping("/list-pessoas")
-    public String listpessoas(Model model) {
+    public ModelAndView listPessoa(ModelAndView model) {
         List<Pessoa> list = pessoaService.listPessoas();
-        model.addAttribute("pessoas", list);
-        return "listpessoa";
-
+        model.setViewName("novaPessoa");
+        model.addObject("pessoa", list);
+        return model;
     }
 
+    @PostMapping("/ceate-pessoa")
+    public ModelAndView createPessoa(ModelAndView model, @RequestBody Pessoa pessoa) {
+        Pessoa pessoas = pessoaService.createPessoa(pessoa);
+        model.setViewName("novaPessoa");
+        model.addObject("pessoa", pessoas);
+        return model;
+    }
 
+    @PostMapping("/update-pessoa")
+    public ModelAndView updatePessoa(ModelAndView model, @RequestBody Pessoa pessoa) {
+        Pessoa pessoas = pessoaService.updatePessoa(pessoa);
+        model.setViewName("novaPessoa");
+        model.addObject("pessoa", pessoas);
+        return model;
+    }
 
-
-
-//    @GetMapping("/list-pessoa")
-//    public String listPessoa(Model model)
-//    {
-//        List<Pessoa> list = pessoaService.getAllPessoa();
-//
-//        model.addAttribute("pessoa", list);
-//        return "list-pessoa";
-//    }
-
-//    @RequestMapping(path = {"/update", "/update/{id}"})
-//    public String updatePessoaById(Model model, @PathVariable("id") Optional<Integer> id)
-//    {
-//        if (id.isPresent()) {
-//            Pessoa pessoa = pessoaService.getPessoaById(id.get());
-//            model.addAttribute("pessoa", pessoa);
-//        } else {
-//            model.addAttribute("pessoa", new Pessoa());
-//        }
-//        return "add-update-pessoa";
-//    }
-//
-//    @RequestMapping(path = "/delete/{id}")
-//    public String deletePessoaById(Model model, @PathVariable("id") Integer id)
-//    {
-//        pessoaService.deletePessoaById(id);
-//        return "redirect:/";
-//    }
-//
-//    @RequestMapping(path = "/createPessoa", method = RequestMethod.POST)
-//    public String createOrUpdatePessoa(Pessoa pessoa)
-//    {
-//        pessoaService.createOrUpdatePessoa(pessoa);
-//        return "redirect:/";
-//    }
+    @DeleteMapping("/delete-pessoa")
+    public ModelAndView deletePessoa(ModelAndView model, @RequestParam("id") Integer pessoaId) {
+        Boolean pessoa = pessoaService.deletePessoas(pessoaId);
+        model.setViewName("novaPessoa");
+        model.addObject("pessoa", pessoa);
+        return model;
+    }
 
 }

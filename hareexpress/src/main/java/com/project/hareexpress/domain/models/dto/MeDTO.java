@@ -24,7 +24,6 @@ public class MeDTO {
     private String login;
     private String nome;
     private String email;
-//    private Character sexo;
     private List<Role> roles;
 
 }

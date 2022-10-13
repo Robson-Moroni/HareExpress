@@ -1,13 +1,9 @@
 package com.project.hareexpress.domain.models;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -20,13 +16,8 @@ public class Pessoa {
     private String nome;
     private String telefone;
 
-    public Pessoa get() {
-        return null;
-    }
-
-
-//    @OneToOne
-//    @JoinColumn(name = "endereco_id")
-//    private Endereco endereco;
+    @OneToOne
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
 
 }

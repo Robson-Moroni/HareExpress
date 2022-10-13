@@ -13,6 +13,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -47,10 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors().and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers("/user/sign-up").permitAll()
-                .antMatchers(HttpMethod.GET,"/pessoa/*").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers(HttpMethod.GET,"/pessoa/list-pessoa").permitAll()
+                .anyRequest().permitAll()
                 .and().csrf().disable()
                 .addFilter(new JwtAuthenticationFilter(authManager))
                 .addFilter(new JwtAuthorizationFilter(authManager, userDetailsService))
@@ -59,6 +60,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    }
+
+    //Configurações de recursos estaticos(js,css, images, etc...)
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/*");
     }
 
     @Bean

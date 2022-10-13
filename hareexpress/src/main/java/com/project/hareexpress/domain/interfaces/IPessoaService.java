@@ -7,4 +7,7 @@ import java.util.List;
 public interface IPessoaService {
 
     List<Pessoa> listPessoas();
+    Pessoa createPessoa(Pessoa pessoa);
+    Pessoa updatePessoa(Pessoa pessoa);
+    Boolean deletePessoas(Integer pessoaId);
 }
