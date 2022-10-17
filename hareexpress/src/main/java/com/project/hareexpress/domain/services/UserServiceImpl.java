@@ -7,6 +7,8 @@ import com.project.hareexpress.domain.models.dto.SignUpDTO;
 import com.project.hareexpress.repositories.PessoaRepository;
 import com.project.hareexpress.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Role;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,32 +29,6 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User updateUser(User user) {
-
-//        if (user.getNome().equals(""))
-//            throw new IllegalArgumentException("Nome de pessoa inválido");
-//
-//        if (user.getTelefone().equals(""))
-//            throw new IllegalArgumentException("Telefone de pessoa inválido");
-//
-//        return userRepository.save(pessoa);
-        return null;
-    }
-
-    @Override
-    public Boolean deleteUser(Integer userId) {
-        Optional<User> deleteUser = userRepository.findById(userId);
-
-        if (!deleteUser.isPresent()) {
-            throw new IllegalArgumentException("Usuário não encontrado");
-        }
-
-        userRepository.delete(deleteUser.get());
-
-        return true;
-    }
-
-
     public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User currentUser = (User) authentication.getPrincipal();
@@ -65,8 +41,8 @@ public class UserServiceImpl implements IUserService {
         return optionalUser.get();
     }
 
-
-    public Boolean signUp(SignUpDTO signUpDTO) {
+    @Override
+    public User signUp(SignUpDTO signUpDTO) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
         if (signUpDTO.getLogin().length()<5)
@@ -97,9 +73,53 @@ public class UserServiceImpl implements IUserService {
         user.setSenha(bCryptPasswordEncoder.encode(signUpDTO.getSenha()));
         user.setConfirmarSenha(bCryptPasswordEncoder.encode(signUpDTO.getConfirmarSenha()));
 
-        userRepository.save(user);
+        User newUser = userRepository.save(user);
+
+        return newUser;
+    }
+
+//    @Secured("ROLE_ADMIN")
+    @Override
+    public User updateUser(User user) {
+
+        Optional<User> optionalUser = userRepository.findById(user.getId());
+
+        if (!optionalUser.isPresent())
+            throw new IllegalArgumentException("Usuário não encontrado");
+
+        if (user.getLogin().equals(""))
+            throw new IllegalArgumentException("Login inválido");
+
+        if (!(optionalUser.get().getLogin().equals(user.getLogin())) && userRepository.findFirstByLogin(user.getLogin()) != null)
+            throw new IllegalArgumentException("Login já existente");
+
+        if (!(user.getEmail().contains("@") && user.getEmail().contains(".")))
+            throw new IllegalArgumentException("Email inválido");
+
+        if (!(optionalUser.get().getEmail().equals(user.getEmail())) && userRepository.findFirstByEmail(user.getEmail()) != null)
+            throw new IllegalArgumentException("Email já existente");
+
+        optionalUser.get().setLogin(user.getLogin());
+        optionalUser.get().setEmail(user.getEmail());
+
+        User updateUser = userRepository.save(optionalUser.get());
+
+        return updateUser;
+    }
+
+    @Override
+    public Boolean deleteUser(Integer userId) {
+        Optional<User> deleteUser = userRepository.findById(userId);
+
+        if (!deleteUser.isPresent()) {
+            throw new IllegalArgumentException("Usuário não encontrado");
+        }
+
+        userRepository.delete(deleteUser.get());
 
         return true;
     }
+
+
 
 }

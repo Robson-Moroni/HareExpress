@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous">
+    </script>
+    <link  href="../static/css/styles.css" rel="stylesheet" type="text/css">
+    <title>Title</title>
+</head>
+<style>
+        .titulo {
+      text-align: center;
+      padding: 30px;
+      font-weight: bolder;
+      font-size:xx-large;
+    }
+
+    .texto {
+      text-align: center;
+      font-size:x-large;
+    }
+
+    .divisor {
+      height: 20px;
+    }
+
+    .header {
+      background-color: #043249;
+      padding: 5px;
+      color: white;
+      padding-left: 20px;
+    }
+
+    .button {
+      font-weight: bolder;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 30px;
+      margin: 10px 5px;
+      transition-duration: 0.2s;
+      cursor: pointer;
+      border-radius: 8px;
+      width: 200px;
+    }
+
+    .button1 {
+      background-color: #043249;
+      color: white;
+    }
+
+    .button1:hover {
+      background-color: white;
+      color: #043249;
+    }
+
+    .button2 {
+      color: #043249;
+      background-color: white;
+    }
+
+    .button2:hover {
+      color: white;
+      background-color: #043249;
+    }
+
+    .button3 {
+      width: 510px;
+      height: 100px;
+      background-color: #043249;
+      color: white;
+      font-weight: bolder;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      font-size: 50px;
+      transition-duration: 0.2s;
+      cursor: pointer;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button3:hover {
+      color: white;
+      background-color: #043249;
+    }
+
+    .teste {
+      background-color: red;
+    }
+
+    .teste1 {
+      background-color: blue;
+    }
+</style>
+<body>
+    <nav class=" header d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="paginainicial.html"
+           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <img src="src/images/image_3.png" class="img_fluid" alt="image 4.png">
+        </a>
+
+        <ul class="nav">
+            <li class="nav-item"><a href="#" class="nav-link button button1" aria-current="page">Entrar</a></li>
+            <li class="nav-item"><a href="#" class="nav-link button button2" aria-current="page">Criar Conta</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-6 d-flex align-items-center flex-wrap justify-content-center">
+                <img src="src/images/image 4.png" class="img-fluid" alt="image 4.png">
+            </div>
+
+            <div class="col-6 d-flex align-items-center flex-wrap justify-content-center">
+                <p class="titulo"> Com Hare Express o impossível torna se possível</p></br>
+                <p class="texto">Solicite sua entrega com a gente e garanta a segunrança e agilidade de entrega do seu produto.</p>
+            </div>
+
+        </div>
+
+        <div class="divisor"></div>
+
+        <div class="row">
+            <div class="col-6 d-flex align-items-center flex-wrap justify-content-center">
+                <a class="button3">Solicitar produtos</a>
+            </div>
+
+            <div class="col-6 d-flex align-items-center flex-wrap justify-content-center">
+                <a class="button3">Realizar entregas</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

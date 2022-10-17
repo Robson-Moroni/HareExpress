@@ -49,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
+                .antMatchers("/", "/home", "/js/**", "/css/**").permitAll()
                 .antMatchers("/user/sign-up").permitAll()
                 .antMatchers(HttpMethod.GET,"/pessoa/list-pessoa").permitAll()
                 .anyRequest().permitAll()
@@ -65,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //Configurações de recursos estaticos(js,css, images, etc...)
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/*");
+        web.ignoring().antMatchers("/resources/**");
     }
 
     @Bean

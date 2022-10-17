@@ -4,8 +4,10 @@ import com.project.hareexpress.domain.interfaces.IPessoaService;
 import com.project.hareexpress.domain.interfaces.IUserService;
 import com.project.hareexpress.domain.models.Pessoa;
 import com.project.hareexpress.domain.models.User;
+import com.project.hareexpress.domain.models.dto.SignUpDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,9 +28,17 @@ public class UserController {
         return model;
     }
 
-    @PostMapping("/ceate-user")
-    public ModelAndView createUser(ModelAndView model, @RequestBody User user) {
-        User users = userService.createUser(user);
+    @GetMapping("/get-current-user")
+    public ModelAndView getCurrentUser(ModelAndView model) {
+        User users = userService.getCurrentUser();
+        model.setViewName("user");
+        model.addObject("users", users);
+        return model;
+    }
+
+    @PostMapping("/sign-up")
+    public ModelAndView signUp(ModelAndView model, @RequestBody SignUpDTO signUpDTO) {
+        User users = userService.signUp(signUpDTO);
         model.setViewName("user");
         model.addObject("users", users);
         return model;

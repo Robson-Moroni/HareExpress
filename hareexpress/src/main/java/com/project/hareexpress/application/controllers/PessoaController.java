@@ -16,10 +16,10 @@ public class PessoaController {
     @Autowired
     private IPessoaService pessoaService;
 
-    @GetMapping("/list-pessoas")
+    @GetMapping("/home")
     public ModelAndView listPessoa(ModelAndView model) {
         List<Pessoa> list = pessoaService.listPessoas();
-        model.setViewName("novaPessoa");
+        model.setViewName("home");
         model.addObject("pessoa", list);
         return model;
     }
