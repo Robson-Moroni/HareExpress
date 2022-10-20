@@ -1,0 +1,85 @@
+/* Style Login */
+
+a{
+    text-decoration: none;
+    color: #395766;
+}
+
+p {
+    text-align: center;
+}
+
+.he-col-img {
+	height: 100vh;
+	padding: 0%;
+	margin: 0%;
+}
+
+.he-col-login {
+	height: 100vh;
+	padding: 0%;
+	margin: 0%;
+}
+
+.he-img-login {
+	height: 100vh;
+	width: 45vw;
+}
+
+
+.he-card-login {
+	width: 65%;
+	height: 90%;
+	display:flex;
+	margin: 0 auto;
+	margin-top: 2%;
+    border-color: #9b9b9b;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+	width: 90%;
+	padding: 12px 20px;
+	margin-top: 3%;
+	margin-left: 5%;
+	margin-bottom: 3%;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+	background-color: #043249;
+	color: white;
+	font-weight: 600;
+	padding: 10px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 50%;
+	text-align: center;
+	margin-left: 25%;
+	border-radius: 5px;
+  }
+
+  .he-label {
+	color: #043249;
+	font-weight: 500;
+	margin-left: 10%;
+  }
+
+  button:hover {
+	opacity: 0.8;
+  }
+
+.card-title {
+	text-align: center;
+	font-size: 35px;
+	color: #043249;
+}
+

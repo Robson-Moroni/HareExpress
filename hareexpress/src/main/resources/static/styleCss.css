@@ -1,0 +1,95 @@
+/* Style Home */
+.he-nav {
+	background-color: #043249;
+}
+
+.he-color-nav {
+	color: white;
+}
+
+.he-container {
+	padding-top: 35px;
+}
+
+.he-img-nav {
+	height: 50px;
+}
+
+.he-img {
+	height: 80%;
+    width: 80%;
+
+}
+
+.he-img-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.he-button-div {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	padding-top: 80px;
+}
+
+.he-button {
+	width: 80%;
+	height: 200%;
+	background-color: #043249;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	border: n;
+}
+
+.he-button:hover {
+	opacity: 0.8;
+  }
+
+
+.he-titulo {
+	text-align: center;
+	padding-top: 70px;
+	font-size: 25px;
+	font-weight: bolder;
+}
+
+
+.texto {
+	text-align: center;
+	font-size: large;
+}
+
+.btn, .button {
+	font-weight: bolder;
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	transition-duration: 0.2s;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.button1 {
+	background-color: #043249;
+	color: white;
+	margin-left: 10px;
+}
+
+.button1:hover {
+	background-color: white;
+	color: #043249;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -22,12 +22,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.Arrays;
 
 
 @Configuration
 @EnableWebSecurity
+@EnableWebMvc
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -48,10 +50,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors().and()
                 .authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/src/images/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/static/css/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/static/js/**").permitAll()
                 .antMatchers("/", "/home", "/js/**", "/css/**").permitAll()
                 .antMatchers("/user/sign-up").permitAll()
-                .antMatchers(HttpMethod.GET,"/pessoa/list-pessoa").permitAll()
+                .antMatchers(HttpMethod.GET,"/pessoa/home").permitAll()
                 .anyRequest().permitAll()
                 .and().csrf().disable()
                 .addFilter(new JwtAuthenticationFilter(authManager))
@@ -66,7 +72,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //Configurações de recursos estaticos(js,css, images, etc...)
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**");
+        web.ignoring()
+                .antMatchers("/resources/static/css/**")
+                .antMatchers("/resources/**")
+                .antMatchers("/resources/src/images/**");
     }
 
     @Bean
