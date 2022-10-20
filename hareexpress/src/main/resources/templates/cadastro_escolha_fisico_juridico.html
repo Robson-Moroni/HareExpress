@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastrar</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
     <!-- Bootstrap -->
     <!-- JavaScript Bundle with Popper -->
@@ -16,11 +17,9 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../static/cadastrar.css" type="text/css" />
-
 </head>
 
 <body>
-
 
     <nav class="navbar he-nav">
         <div class="container-fluid">
@@ -37,22 +36,27 @@
 
 
     <div class="container-fluid">
-
+        <!--<div class="row">
+          <div class="col d-flex align-items-center flex-wrap justify-content-center">
+            <p class="titulo">Estamos muito felizes por escolher a Hare Express!</p></br>
+            <p class="texto">Gostaria de usar esta conta como:</p>
+          </div>
+        </div>-->
 
         <div class="col d-flex align-items-center flex-wrap justify-content-center">
-            <p class="titulo">Estamos muito felizes por escolher a Hare Express!</p></br>
-            <p class="texto">Selecione abaixo como você gostaria de utilizar esta conta:</p>
+            <p class="titulo">Para quem esta conta será criada?</p></br>
+            <p class="texto"></p>
         </div>
 
         <div class="divisor"></div>
 
         <div class="row">
-            <div class="col-6 ">
-                <a class="button3" href="/cadastrar_escolha_fisico_juridico">Cliente</a>
+            <div class="col-6 d-flex align-items-center flex-wrap justify-content-center">
+                <a class="button3" href="/cadastrar_pessoa_fisica">Para mim!</a>
             </div>
 
-            <div class="col-6 ">
-                <a class="button3" href="/cadastrar_entregador">Entregador</a>
+            <div class="col-6 d-flex align-items-center flex-wrap justify-content-center">
+                <a class="button3" href="/cadastrar_pessoa_juridica">Para minha empresa!</a>
             </div>
         </div>
 
@@ -61,6 +65,7 @@
         </div>
 
     </div>
+
 </body>
 
 </html>

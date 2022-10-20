@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -31,11 +31,21 @@
                         <img src="../src/image_3.png" class="he-img-login-logo">
                         <div class="card-title">Login</div>
                         <div class="card-body">
-                            <form>
-                                <label for="uname" class="he-label">E-mail ou usuário</label>
-                                <input type="text"  placeholder="Entre com e-mail ou usuário" name="uname" required>
-                                <label for="uname" class="he-label">Senha</label>
-                                <input type="password" placeholder="Entre com a senha" name="uname" required>
+                            <form th:action="@{/login}" method="POST">
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>: <input type="text" id="email" name="email" class="form-control" autofocus="autofocus" placeholder="E-mail" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="senha">Senha</label>: <input type="password" id="senha" name="senha" class="form-control" autofocus="autofocus" placeholder="Senha" />
+                                </div>
+
+<!--                                <label for="uname" class="he-label">E-mail ou usuário</label>-->
+<!--                                -->
+<!--                                <input type="text"  placeholder="Entre com e-mail ou usuário" name="uname" required>-->
+<!--                                <label for="uname" class="he-label">Senha</label>-->
+<!--                                <input type="password" placeholder="Entre com a senha" name="uname" required>-->
                                 <button type="submit">Entrar</button>
                             </form>
 
@@ -44,7 +54,7 @@
                             </p>
 
                             <p>
-                                <a href="/index">Voltar</a>
+                                <a href="/">Voltar</a>
                             </p>
                         </div>
                     </div>

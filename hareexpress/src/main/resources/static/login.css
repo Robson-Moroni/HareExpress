@@ -83,3 +83,7 @@ input[type=text], input[type=password] {
 	color: #043249;
 }
 
+@media (max-width: 768px) {
+    .he-col-img {
+        display: none;
+    }
