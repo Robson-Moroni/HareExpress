@@ -31,11 +31,11 @@
                         <img src="../src/image_3.png" class="he-img-login-logo">
                         <div class="card-title">Login</div>
                         <div class="card-body">
-                            <form>
-                                <label for="uname" class="he-label">E-mail ou usuário</label>
-                                <input type="text"  placeholder="Entre com e-mail ou usuário" name="uname" required>
-                                <label for="uname" class="he-label">Senha</label>
-                                <input type="password" placeholder="Entre com a senha" name="uname" required>
+                            <form th:action="@{/login}" th:object="${loginForm}" method="post">
+                                <label for="nomeCompleto" class="he-label">E-mail ou usuário</label>
+                                <input type="text"  id="nomeCompleto" placeholder="Entre com e-mail ou usuário" name="nomeCompleto" required>
+                                <label for="senha" class="he-label">Senha</label>
+                                <input type="password" id="senha" placeholder="Entre com a senha" name="senha" required>
                                 <button type="submit">Entrar</button>
                             </form>
 
