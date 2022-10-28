@@ -15,19 +15,6 @@ public class PessoaController {
     @Autowired
     private IPessoaService pessoaService;
 
-//    @RequestMapping("/")
-//    public String home(){
-//        return "home";
-//    }
-
-//    @GetMapping("/home")
-//    @RequestMapping(value = "/home", method = RequestMethod.GET, produces="text/css")
-//    public ModelAndView listPessoa(ModelAndView model) {
-//        List<Pessoa> list = pessoaService.listPessoas();
-//        model.setViewName("home");
-//        model.addObject("pessoa", list);
-//        return model;
-//    }
 
     @PostMapping("/ceate-pessoa")
     public ModelAndView createPessoa(ModelAndView model, @RequestBody Pessoa pessoa) {
