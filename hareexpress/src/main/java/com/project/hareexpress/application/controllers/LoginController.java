@@ -20,9 +20,7 @@ public class LoginController {
         String username = loginForm.getUsername();
         String senha = loginForm.getSenha();
 
-        if("admin".equals(username) && "admin".equals(senha)) {
-            return "index";
-        }
+
 
         model.addAttribute("invalidCredentials", true);
         return "login";

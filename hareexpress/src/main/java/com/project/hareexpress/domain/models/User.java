@@ -14,6 +14,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "user", schema = "hareexpress")
 public class User implements UserDetails {
 
     @Id
