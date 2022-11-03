@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,11 +24,11 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(LoginForm login, HttpServletRequest httpServletRequest) {
+    public ModelAndView login(LoginForm login, HttpServletRequest httpServletRequest) {
 
     if(authenticationService.isAuthetatic(login)){
-        return "cadastrar";
+        return new ModelAndView("/cadastrar_escolha_cliente_entregador");
     }
-        return "login";
+        return new ModelAndView( "login");
     }
 }

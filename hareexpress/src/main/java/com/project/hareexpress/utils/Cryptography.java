@@ -13,7 +13,7 @@ public class Cryptography {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String passwordCrypt = encoder.encode("admin");
 
-		System.out.println(passwordCrypt);
+		System.out.println(String.join("-",passwordCrypt.toString(), "abacaxi"));
 
 		boolean decode =  encoder.matches("admin", "$2a$10$fAC4KQitDaN1hBx90A1kxOR/qnKMSh1zdwEto1Bi.0dbzWYhem6Du");
 

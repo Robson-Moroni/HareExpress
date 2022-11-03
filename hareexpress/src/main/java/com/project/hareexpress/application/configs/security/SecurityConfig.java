@@ -51,6 +51,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().and()
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
+                .antMatchers("/controller/**").permitAll()
+                .antMatchers("/cadastrar/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/src/images/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/static/css/**").permitAll()
