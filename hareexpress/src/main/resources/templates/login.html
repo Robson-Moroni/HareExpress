@@ -34,7 +34,7 @@
 
                             <form th:action="@{/login}" th:object="${loginForm}" method="post">
                                 <label for="nomeCompleto" class="he-label">E-mail ou usuário</label>
-                                <input type="text"  id="nomeCompleto" placeholder="Entre com e-mail ou usuário" name="nomeCompleto" required>
+                                <input type="text"  id="nomeCompleto" placeholder="Entre com e-mail ou usuário" name="username" required>
                                 <label for="senha" class="he-label">Senha</label>
                                 <input type="password" id="senha" placeholder="Entre com a senha" name="senha" required>
                                 <button type="submit">Entrar</button>
