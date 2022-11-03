@@ -27,7 +27,7 @@ public class LoginController {
     public ModelAndView login(LoginForm login, HttpServletRequest httpServletRequest) {
 
     if(authenticationService.isAuthetatic(login)){
-        return new ModelAndView("/cadastrar_escolha_cliente_entregador");
+        return new ModelAndView("/cadastro_escolha_cliente_entregador");
     }
         return new ModelAndView( "login");
     }
