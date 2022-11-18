@@ -1,14 +1,22 @@
 package com.project.hareexpress.application.controllers;
 
 import com.project.hareexpress.application.form.LoginForm;
+import com.project.hareexpress.domain.services.AthenticationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class LoginController {
+
+    @Autowired
+    private AthenticationService authenticationService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getLoginForm() {
@@ -16,15 +24,11 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
-        String username = loginForm.getUsername();
-        String senha = loginForm.getSenha();
+    public ModelAndView login(LoginForm login, HttpServletRequest httpServletRequest) {
 
-        if("admin".equals(username) && "admin".equals(senha)) {
-            return "index";
-        }
-
-        model.addAttribute("invalidCredentials", true);
-        return "login";
+    if(authenticationService.isAuthetatic(login)){
+        return new ModelAndView("/cadastro_escolha_cliente_entregador");
+    }
+        return new ModelAndView( "login");
     }
 }

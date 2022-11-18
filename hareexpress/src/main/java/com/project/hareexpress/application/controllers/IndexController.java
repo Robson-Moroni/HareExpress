@@ -20,6 +20,10 @@ public class IndexController {
     public PessoaServiceImpl pessoaService;
     @Autowired
     public IUserService userService;
+
+    private static final String URL_CADASTRO_ENTREGADOR = "/cadastro_entregador/";
+    private static final String URL_CADASTRO_PESSOA_FISICA= "/cadastro_pessoa_fisica/";
+    private static final String URL_CADASTRO_PESSOA_JURIDICA= "/cadastro_pessoa_juridica/";
     
     @RequestMapping("/")
     public ModelAndView ModelAndView(){
@@ -42,19 +46,19 @@ public class IndexController {
 
     @RequestMapping("/cadastrar_entregador")
     public ModelAndView cadastrarEntregador(){
-        ModelAndView mv = new ModelAndView("cadastro_entregador");
+        ModelAndView mv = new ModelAndView(URL_CADASTRO_ENTREGADOR +"cadastro_entregador");
         return mv;
     }
 
     @RequestMapping("/cadastrar_entregador_endereco")
     public ModelAndView cadastrarEntregadorEndereco(){
-        ModelAndView mv = new ModelAndView("cadastro_entregador_endereco");
+        ModelAndView mv = new ModelAndView(URL_CADASTRO_ENTREGADOR + "cadastro_entregador_endereco");
         return mv;
     }
 
     @RequestMapping("/cadastrar_entregador_veiculo")
     public ModelAndView cadastrarEntregadorVeiculo(){
-        ModelAndView mv = new ModelAndView("cadastro_entregador_veiculo");
+        ModelAndView mv = new ModelAndView(URL_CADASTRO_ENTREGADOR + "cadastro_entregador_veiculo");
         return mv;
     }
 
@@ -66,19 +70,19 @@ public class IndexController {
 
     @RequestMapping("/cadastrar_escolha_fisico_juridico")
     public ModelAndView cadastrarPessoaFisicaJuridica(){
-        ModelAndView mv = new ModelAndView("cadastro_escolha_fisico_juridico");
+        ModelAndView mv = new ModelAndView( "cadastro_escolha_fisico_juridico");
         return mv;
     }
 
     @RequestMapping("/cadastrar_pessoa_fisica")
     public ModelAndView cadastrarPessoaFisica(){
-        ModelAndView mv = new ModelAndView("cadastro_pessoa_fisica");
+        ModelAndView mv = new ModelAndView(URL_CADASTRO_PESSOA_FISICA + "cadastro_pessoa_fisica");
         return mv;
     }
 
     @RequestMapping("/cadastrar_pessoa_fisica_endereco")
     public ModelAndView cadastrarPessoaFisicaEndereco(){
-        ModelAndView mv = new ModelAndView("cadastro_pessoa_fisica_endereco");
+        ModelAndView mv = new ModelAndView(URL_CADASTRO_PESSOA_FISICA +  "cadastro_pessoa_fisica_endereco");
         return mv;
     }
 
@@ -92,13 +96,13 @@ public class IndexController {
 
     @RequestMapping("/cadastrar_pessoa_juridica")
     public ModelAndView cadastrarPessoaJuridica(){
-        ModelAndView mv = new ModelAndView("cadastro_pessoa_juridica");
+        ModelAndView mv = new ModelAndView(URL_CADASTRO_PESSOA_JURIDICA + "cadastro_pessoa_juridica");
         return mv;
     }
 
     @RequestMapping("/cadastrar_pessoa_juridica_endereco")
     public ModelAndView cadastrarPessoaJuridicaEndereco(){
-        ModelAndView mv = new ModelAndView("cadastro_pessoa_juridica_endereco");
+        ModelAndView mv = new ModelAndView(URL_CADASTRO_PESSOA_JURIDICA + "cadastro_pessoa_juridica_endereco");
         return mv;
     }
 

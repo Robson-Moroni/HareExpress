@@ -14,15 +14,22 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "user", schema = "hareexpress")
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @Column(name = "login")
     private String login;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "senha")
     private String senha;
+
+    @Column(name = "confirmarSenha")
     private String confirmarSenha;
 
     @ManyToMany(fetch = FetchType.EAGER)
