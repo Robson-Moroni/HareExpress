@@ -5,17 +5,27 @@ import com.project.hareexpress.domain.interfaces.IUserService;
 import com.project.hareexpress.domain.models.Pessoa;
 import com.project.hareexpress.domain.models.User;
 import com.project.hareexpress.domain.models.dto.SignUpDTO;
+import com.project.hareexpress.repositories.PessoaRepository;
+import com.project.hareexpress.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PessoaRepository pessoaRepository;
 
     @Autowired
     private IUserService userService;
@@ -27,6 +37,22 @@ public class UserController {
         model.addObject("users", list);
         return model;
     }
+
+
+
+
+    // Adiciona novo usuário
+    @RequestMapping(method = RequestMethod.POST, value = "/salvar")
+    public String salvar(Pessoa pessoa, User user) {
+
+        pessoaRepository.save(pessoa);
+        userRepository.save(user);
+
+        return "index";
+    }
+
+
+
 
     @GetMapping("/get-current-user")
     public ModelAndView getCurrentUser(ModelAndView model) {
