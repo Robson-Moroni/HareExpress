@@ -1,13 +1,10 @@
-package com.project.hareexpress.application.controllers;
+package com.project.hareexpress.controllers;
 
-import com.project.hareexpress.domain.interfaces.IPessoaService;
-import com.project.hareexpress.domain.interfaces.IUserService;
-import com.project.hareexpress.domain.models.Pessoa;
+import com.project.hareexpress.services.IUserService;
 import com.project.hareexpress.domain.models.User;
 import com.project.hareexpress.domain.models.dto.SignUpDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,6 +16,15 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+
+    private static final String URL_CADASTRO_USUARIO= "/cadastro_usuario/";
+
+    @GetMapping("/create")
+    public ModelAndView create(){
+        ModelAndView mv = new ModelAndView(URL_CADASTRO_USUARIO + "cadastro_usuario");
+        mv.addObject(new User());
+        return mv;
+    }
 
     @GetMapping("/list-users")
     public ModelAndView listUsers(ModelAndView model) {

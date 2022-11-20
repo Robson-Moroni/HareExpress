@@ -1,4 +1,4 @@
-package com.project.hareexpress.domain.interfaces;
+package com.project.hareexpress.services;
 
 import com.project.hareexpress.domain.models.Pessoa;
 import com.project.hareexpress.domain.models.User;
@@ -13,5 +13,5 @@ public interface IUserService {
     Boolean deleteUser(Integer userId);
     User getCurrentUser();
     User signUp(SignUpDTO signUpDTO);
-
+    User save(User user);
 }

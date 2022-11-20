@@ -1,11 +1,8 @@
-package com.project.hareexpress.domain.services;
+package com.project.hareexpress.services;
 
-import com.project.hareexpress.domain.interfaces.IUserService;
-import com.project.hareexpress.domain.models.Pessoa;
 import com.project.hareexpress.domain.models.User;
 import com.project.hareexpress.domain.models.dto.SignUpDTO;
-import com.project.hareexpress.repositories.PessoaRepository;
-import com.project.hareexpress.repositories.UserRepository;
+import com.project.hareexpress.domain.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Role;
 //import org.springframework.security.access.annotation.Secured;
@@ -81,7 +78,12 @@ public class UserServiceImpl implements IUserService {
         return newUser;
     }
 
-//    @Secured("ROLE_ADMIN")
+    @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    //    @Secured("ROLE_ADMIN")
     @Override
     public User updateUser(User user) {
 

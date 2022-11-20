@@ -1,6 +1,6 @@
-package com.project.hareexpress.application.controllers;
+package com.project.hareexpress.controllers;
 
-import com.project.hareexpress.domain.interfaces.IEnderecoService;
+import com.project.hareexpress.services.IEnderecoService;
 import com.project.hareexpress.domain.models.Endereco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ public class EnderecoController {
     @Autowired
     private IEnderecoService enderecoService;
 
-    @GetMapping("/list-endereco")
+    @GetMapping("/list")
     public ModelAndView listEndereco(ModelAndView model) {
         List<Endereco> list = enderecoService.listEnderecos();
         model.setViewName("endereco");
@@ -24,7 +24,7 @@ public class EnderecoController {
         return model;
     }
 
-    @PostMapping("/ceate-endereco")
+    @PostMapping("/create")
     public ModelAndView createEndereco(ModelAndView model, @RequestBody Endereco endereco) {
         Endereco enderecos = enderecoService.createEndereco(endereco);
         model.setViewName("endereco");
@@ -32,7 +32,7 @@ public class EnderecoController {
         return model;
     }
 
-    @PostMapping("/update-endereco")
+    @PostMapping("/update")
     public ModelAndView updatePessoa(ModelAndView model, @RequestBody Endereco endereco) {
         Endereco enderecos = enderecoService.updateEndereco(endereco);
         model.setViewName("endereco");
@@ -40,7 +40,7 @@ public class EnderecoController {
         return model;
     }
 
-    @DeleteMapping("/delete-endereco")
+    @DeleteMapping("/delete")
     public ModelAndView deleteEndereco(ModelAndView model, @RequestParam("id") Integer enderecoId) {
         Boolean endereco = enderecoService.deleteEndereco(enderecoId);
         model.setViewName("endereco");
