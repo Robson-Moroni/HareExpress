@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -40,46 +40,48 @@
             <div class="divisor"></div>
             <div class="col-sm">
                 <h3>Dados Pessoais</h3><br>
-                <form>
+                <form action="salvar" method="post">
                     <div class="form-group">
                         <label for="nome_completo">Nome Completo</label>
-                        <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp"
-                            placeholder="Digite seu nome completo">
+                        <input type="text" class="form-control" id="nome_completo"
+                            placeholder="Digite seu nome completo" name="nome">
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
                             <label for="CPF">CPF</label>
-                            <input type="text" class="form-control" id="CPF" placeholder="Digite somente números">
+                            <input type="text" class="form-control" id="CPF" placeholder="Digite somente números" name="cpf">
                         </div>
                         <div class="col">
                             <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" placeholder="Ex:(DDD) xxxx-xxxx">
+                            <input type="text" class="form-control" id="telefone" placeholder="Ex:(DDD) xxxx-xxxx" name="telefone">
                         </div>
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="login">Login</label>
-                        <input type="email" class="form-control" id="login" aria-describedby="emailHelp"
-                            placeholder="Digite seu login">
+                        <input type="text" class="form-control" id="login"
+                            placeholder="Digite seu login"  name="login">
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="email">Endereço de Email</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                            placeholder="Digite seu endereço de e-mail">
+                        <input type="email" class="form-control" id="email"
+                            placeholder="Digite seu endereço de e-mail" name="email">
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
                             <label for="senha">Senha</label>
-                            <input type="password" class="form-control" id="senha">
+                            <input type="password" class="form-control" id="senha"  name="senha">
                         </div>
                         <div class="col">
-                            <label for="confirma_senha">Confirmar Senha</label>
-                            <input type="password" class="form-control">
+                            <label for="confirmar_senha">Confirmar Senha</label>
+                            <input type="password" class="form-control" id="confirmar_senha" name="confirmarSenha">
                         </div>
                     </div>
+
+                    <input type="submit" value="Salvar">
                 </form>
             </div>
         </div>
@@ -90,7 +92,8 @@
             <div class="col-md">
             </div>
             <div class="col-md" align="center">
-                <button class="button button1"><a class="link_button" href="/cadastrar_pessoa_fisica_endereco">Continuar</a></button>
+<!--                <button class="button button1"><a class="link_button" href="/cadastrar_pessoa_fisica_endereco">Continuar</a></button>-->
+
             </div>
             <div class="col-md">
 

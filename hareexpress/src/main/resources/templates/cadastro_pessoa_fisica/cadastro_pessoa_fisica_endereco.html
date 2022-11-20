@@ -44,41 +44,41 @@
                 <h3>Endereço</h3><br>
                 <form>
                     <div class="form-group">
-                        <label for="nome_completo">Endereço</label>
-                        <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp"
-                            placeholder="Digite seu nome completo">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" class="form-control" id="endereco"
+                            placeholder="Digite seu nome endereço" name="endereco">
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="senha">Número</label>
-                            <input type="password" class="form-control" id="senha">
+                            <label for="numero">Número</label>
+                            <input type="number" class="form-control" id="numero" name="numero">
                         </div>
                         <div class="col">
-                            <label for="confirma_senha">Complemento</label>
-                            <input type="password" class="form-control">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col">
-                            <label for="senha">Cidade</label>
-                            <input type="password" class="form-control" id="senha">
-                        </div>
-                        <div class="col">
-                            <label for="confirma_senha">CEP</label>
-                            <input type="password" class="form-control">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" class="form-control" id="complemento" name="complemento">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <label for="senha">Estado</label>
-                            <input type="password" class="form-control" id="senha">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" class="form-control" id="cidade" name="cidade">
                         </div>
                         <div class="col">
-                            <label for="confirma_senha">País</label>
-                            <input type="password" class="form-control">
+                            <label for="cep">CEP</label>
+                            <input type="number" class="form-control" id="cep" name="cep">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="estado">Estado</label>
+                            <input type="text" class="form-control" id="estado" name="estado">
+                        </div>
+                        <div class="col">
+                            <label for="pais">País</label>
+                            <input type="text" class="form-control" id="pais" name="pais">
                         </div>
                     </div>
                 </form>
@@ -91,7 +91,8 @@
             <div class="col-md">
             </div>
             <div class="col-md" align="center">
-                <button class="button button1"><a class="link_button" href="/usuario_finalizado">Cadastrar</a></button>
+<!--                <button class="button button1"><a class="link_button" href="/usuario_finalizado">Cadastrar</a></button>-->
+                <input type="submit" value="Salvar">
             </div>
             <div class="col-md">
             </div>
