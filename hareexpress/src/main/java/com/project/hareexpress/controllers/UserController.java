@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -26,29 +27,14 @@ public class UserController {
         return mv;
     }
 
-    @GetMapping("/list-users")
-    public ModelAndView listUsers(ModelAndView model) {
-        List<User> list = userService.listUsers();
-        model.setViewName("users");
-        model.addObject("users", list);
-        return model;
+    @PostMapping("/save")
+    public ModelAndView save(@Valid User user) {
+     ModelAndView mv = new ModelAndView();
+     userService.save(user);
+     return mv;
     }
 
-    @GetMapping("/get-current-user")
-    public ModelAndView getCurrentUser(ModelAndView model) {
-        User users = userService.getCurrentUser();
-        model.setViewName("user");
-        model.addObject("users", users);
-        return model;
-    }
 
-    @PostMapping("/sign-up")
-    public ModelAndView signUp(ModelAndView model, @RequestBody SignUpDTO signUpDTO) {
-        User users = userService.signUp(signUpDTO);
-        model.setViewName("user");
-        model.addObject("users", users);
-        return model;
-    }
 
     @PostMapping("/update-user")
     public ModelAndView updateUser(ModelAndView model, @RequestBody User user) {
