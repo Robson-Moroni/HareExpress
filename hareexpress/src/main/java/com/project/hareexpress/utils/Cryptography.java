@@ -11,9 +11,9 @@ public class Cryptography {
 	public static void main(String[] args) {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String passwordCrypt = encoder.encode("admin");
+		String passwordCrypt = encoder.encode("123");
 
-		System.out.println(String.join("-",passwordCrypt.toString(), "abacaxi"));
+		System.out.println(passwordCrypt);
 
 		boolean decode =  encoder.matches("admin", "$2a$10$fAC4KQitDaN1hBx90A1kxOR/qnKMSh1zdwEto1Bi.0dbzWYhem6Du");
 

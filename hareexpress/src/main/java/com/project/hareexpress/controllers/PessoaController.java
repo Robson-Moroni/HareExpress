@@ -1,22 +1,21 @@
-package com.project.hareexpress.application.controllers;
+package com.project.hareexpress.controllers;
 
-import com.project.hareexpress.domain.interfaces.IPessoaService;
+import com.project.hareexpress.services.IPessoaService;
 import com.project.hareexpress.domain.models.Pessoa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 @Controller
+@RequestMapping("/pessoa")
 public class PessoaController {
 
     @Autowired
     private IPessoaService pessoaService;
 
 
-    @PostMapping("/ceate-pessoa")
+    @PostMapping("/create")
     public ModelAndView createPessoa(ModelAndView model, @RequestBody Pessoa pessoa) {
         Pessoa pessoas = pessoaService.createPessoa(pessoa);
         model.setViewName("novaPessoa");
@@ -24,7 +23,7 @@ public class PessoaController {
         return model;
     }
 
-    @PostMapping("/update-pessoa")
+    @PostMapping("/update")
     public ModelAndView updatePessoa(ModelAndView model, @RequestBody Pessoa pessoa) {
         Pessoa pessoas = pessoaService.updatePessoa(pessoa);
         model.setViewName("novaPessoa");
@@ -32,12 +31,13 @@ public class PessoaController {
         return model;
     }
 
-    @DeleteMapping("/delete-pessoa")
-    public ModelAndView deletePessoa(ModelAndView model, @RequestParam("id") Integer pessoaId) {
+    @DeleteMapping("/delete")
+    public ModelAndView deletePessoa(@RequestParam("id") Integer pessoaId) {
+        ModelAndView mv = new ModelAndView("novaPessoa");
         Boolean pessoa = pessoaService.deletePessoas(pessoaId);
-        model.setViewName("novaPessoa");
-        model.addObject("pessoa", pessoa);
-        return model;
+        mv.setViewName("novaPessoa");
+        mv.addObject("pessoa", pessoa);
+        return mv;
     }
 
 }

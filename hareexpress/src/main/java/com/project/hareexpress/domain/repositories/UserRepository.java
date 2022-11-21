@@ -1,4 +1,4 @@
-package com.project.hareexpress.repositories;
+package com.project.hareexpress.domain.repositories;
 
 import com.project.hareexpress.domain.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;

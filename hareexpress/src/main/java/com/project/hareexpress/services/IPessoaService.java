@@ -1,4 +1,4 @@
-package com.project.hareexpress.domain.interfaces;
+package com.project.hareexpress.services;
 
 import com.project.hareexpress.domain.models.Pessoa;
 
