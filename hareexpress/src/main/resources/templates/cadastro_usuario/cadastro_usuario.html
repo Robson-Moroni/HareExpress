@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -45,27 +46,29 @@
           <div class="divisor"></div>
           <div class="col-sm">
             <h3>Dados de Acesso</h3><br>
-            <form id="form" name="user">
+            <form id="form" name="user" th:action="@{/save}" th:method="POST" th:object="${user}" >
               <div class="form-group">
                 <label for="nome_completo">Nome Completo</label>
-                <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp" placeholder="Digite seu nome completo" required>
+                <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp" placeholder="Digite seu nome completo" th:field="*{login}" required>
               </div>
                 <br>
               <div class="form-group">
                 <label for="email">Endereço de Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu endereço de e-mail" required>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu endereço de e-mail" th:field="*{email}" required>
               </div>
               <br>
               <div class="row">
                 <div class="col">
                   <label for="senha">Senha</label>
-                  <input type="password" class="form-control"  id="senha" required>
+                  <input type="password" class="form-control"  id="senha" th:field="*{senha}" required>
                 </div>
                 <div class="col">
                   <label for="confirmar_senha">Confirmar Senha</label>
                   <input type="password" class="form-control" id="confirmar_senha" required>
                 </div>
               </div>
+
+                <button class="button button1"><a type="submit" class="link_button">Cadastrar</a></button>
             </form> 
           </div>
         </div>
@@ -76,7 +79,7 @@
           <div class="col-md">
           </div>
           <div class="col-md" align="center">
-            <button class="button button1"><a onclick="save()" class="link_button">Cadastrar</a></button>
+            <button class="button button1"><a type="submit" class="link_button">Cadastrar</a></button>
           </div>
           <div class="col-md">
           
@@ -88,6 +91,14 @@
 </body>
 
 </html>
+
+
+<script>
+
+
+
+
+</script>
 
 
 
