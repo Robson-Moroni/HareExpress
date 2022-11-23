@@ -32,16 +32,16 @@
                         <div class="card-title">Login</div>
                         <div class="card-body">
 
-                            <form th:action="@{/login}" th:object="${loginForm}" method="post">
-                                <label for="nomeCompleto" class="he-label">E-mail ou usuário</label>
-                                <input type="text"  id="nomeCompleto" placeholder="Entre com e-mail ou usuário" name="username" required>
+                            <form action="/auth"  method="post">
+                                <label for="email" class="he-label">E-mail ou usuário</label>
+                                <input type="text"  id="email" placeholder="Entre com e-mail ou usuário" name="email" required>
                                 <label for="senha" class="he-label">Senha</label>
                                 <input type="password" id="senha" placeholder="Entre com a senha" name="senha" required>
                                 <button type="submit">Entrar</button>
                             </form>
 
                             <p>
-                                Ainda não possui conta?  <a href="/cadastrar">Cadastrar-se</a>
+                                Ainda não possui conta?  <a href="/user/create">Cadastrar-se</a>
                             </p>
 
                             <p>

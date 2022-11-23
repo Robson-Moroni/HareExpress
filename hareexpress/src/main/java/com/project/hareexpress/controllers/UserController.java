@@ -1,5 +1,6 @@
 package com.project.hareexpress.controllers;
 
+import com.project.hareexpress.domain.repositories.UserRepository;
 import com.project.hareexpress.services.IUserService;
 import com.project.hareexpress.domain.models.User;
 import com.project.hareexpress.domain.models.dto.SignUpDTO;
@@ -18,7 +19,11 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     private static final String URL_CADASTRO_USUARIO= "/cadastro_usuario/";
+    private static final String URL_LOGIN= "/login/";
 
     @GetMapping("/create")
     public ModelAndView create(){
@@ -27,11 +32,10 @@ public class UserController {
         return mv;
     }
 
-    @PostMapping("/save")
-    public ModelAndView save(@Valid User user) {
-     ModelAndView mv = new ModelAndView();
-     userService.save(user);
-     return mv;
+    @RequestMapping(value = "/saveUser", method= RequestMethod.POST)
+    public String save(User user) {
+        userRepository.save(user);
+        return "login";
     }
 
 

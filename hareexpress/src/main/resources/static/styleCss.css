@@ -1,88 +1,144 @@
-/* Style Home */
-.he-nav {
-	background-color: #043249;
-}
+    /* Style Home */
+    .he-nav {
+        background-color: #043249;
+    }
 
-.he-color-nav {
-	color: white;
-}
+    .he-color-nav {
+        color: white;
+    }
 
-.he-container {
-	padding-top: 35px;
-}
+    .he-container {
+        padding-top: 35px;
+    }
 
-.he-img-nav {
-	height: 50px;
-}
+    .he-img-nav {
+        height: 50px;
+    }
 
-.he-img {
-	height: 80%;
-    width: 80%;
+    .he-img {
+        height: 80%;
+        width: 80%;
 
-}
+    }
 
-.he-img-div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+    .he-img-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.he-button-div {
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	padding-top: 80px;
-}
+    .he-button-div {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        padding-top: 80px;
+    }
 
-.he-button {
-	width: 80%;
-	height: 200%;
-	background-color: #043249;
-	color: white;
-	font-weight: bold;
-	font-size: 20px;
-	border: n;
-}
+    .he-button {
+        width: 80%;
+        height: 200%;
+        background-color: #043249;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border: n;
+    }
 
-.he-button:hover {
-	opacity: 0.8;
-  }
-
-
-.he-titulo {
-	text-align: center;
-	padding-top: 70px;
-	font-size: 25px;
-	font-weight: bolder;
-}
+    .he-button:hover {
+        opacity: 0.8;
+      }
 
 
-.texto {
-	text-align: center;
-	font-size: large;
-}
+    .he-titulo {
+        text-align: center;
+        padding-top: 70px;
+        font-size: 25px;
+        font-weight: bolder;
+    }
 
-.btn, .button {
-	font-weight: bolder;
-	border: none;
-	text-align: center;
-	text-decoration: none;
-	transition-duration: 0.2s;
-	cursor: pointer;
-	border-radius: 8px;
-}
 
-.button1 {
-	background-color: #043249;
-	color: white;
-	margin-left: 10px;
-}
+    .texto {
+        text-align: center;
+        font-size: large;
+    }
 
-.button1:hover {
-	background-color: white;
-	color: #043249;
-}
+    .btn, .button {
+        font-weight: bolder;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        transition-duration: 0.2s;
+        cursor: pointer;
+        border-radius: 8px;
+    }
 
+    .button1 {
+        background-color: #043249;
+        color: white;
+        margin-left: 10px;
+    }
+
+    .button1:hover {
+        background-color: white;
+        color: #043249;
+    }
+
+
+    .button2 {
+      color: #043249;
+      background-color: white;
+    }
+
+    .button2:hover {
+      color: white;
+      background-color: #043249;
+    }
+
+    .button3 {
+      width: 510px;
+      height: 100px;
+      background-color: #043249;
+      color: white;
+      font-weight: bolder;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      font-size: 50px;
+      transition-duration: 0.2s;
+      cursor: pointer;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button3:hover {
+      color: white;
+      background-color: #043249;
+    }
+
+
+    #bordabase {
+      border-radius: 25px;
+      border: 2px solid #043249;
+    }
+
+    .bem_vindo {
+      margin-right: 20px;
+    }
+
+    .label {
+      font-weight: 500;
+      justify-content:space-around;
+    }
+
+    .azul_marinho {
+      color:#043249;
+    }
+
+    .nova_entrega {
+      margin: 20px;
+    }
 
 
 

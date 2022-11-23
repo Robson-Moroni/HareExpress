@@ -1,7 +1,8 @@
-package com.project.hareexpress.services;
+package com.project.hareexpress.services.impl;
 
 import com.project.hareexpress.domain.models.Endereco;
 import com.project.hareexpress.domain.repositories.EnderecoRepository;
+import com.project.hareexpress.services.IEnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,8 @@
-package com.project.hareexpress.services;
+package com.project.hareexpress.services.impl;
 
 import com.project.hareexpress.domain.models.Pessoa;
 import com.project.hareexpress.domain.repositories.PessoaRepository;
+import com.project.hareexpress.services.IPessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

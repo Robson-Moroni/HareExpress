@@ -46,25 +46,25 @@
           <div class="divisor"></div>
           <div class="col-sm">
             <h3>Dados de Acesso</h3><br>
-            <form id="form" name="user" th:action="@{/save}" th:method="POST" th:object="${user}" >
+            <form id="form"  action="saveUser" method="post" >
               <div class="form-group">
-                <label for="nome_completo">Nome Completo</label>
-                <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp" placeholder="Digite seu nome completo" th:field="*{login}" required>
+                <label for="nome_completo">Login</label>
+                <input name="login" type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp" placeholder="Digite seu login" required>
               </div>
                 <br>
               <div class="form-group">
                 <label for="email">Endereço de Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu endereço de e-mail" th:field="*{email}" required>
+                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu endereço de e-mail" required>
               </div>
               <br>
               <div class="row">
                 <div class="col">
                   <label for="senha">Senha</label>
-                  <input type="password" class="form-control"  id="senha" th:field="*{senha}" required>
+                  <input name="senha" type="password" class="form-control"  id="senha"  required>
                 </div>
                 <div class="col">
                   <label for="confirmar_senha">Confirmar Senha</label>
-                  <input type="password" class="form-control" id="confirmar_senha" required>
+                  <input name="confirmarSenha" type="password" class="form-control" id="confirmar_senha" required>
                 </div>
               </div>
 
@@ -75,16 +75,16 @@
     
         <div class="divisor"></div>
     
-        <div class="row">
-          <div class="col-md">
-          </div>
-          <div class="col-md" align="center">
-            <button class="button button1"><a type="submit" class="link_button">Cadastrar</a></button>
-          </div>
-          <div class="col-md">
-          
-          </div>
-        </div>
+<!--        <div class="row">-->
+<!--          <div class="col-md">-->
+<!--          </div>-->
+<!--          <div class="col-md" align="center">-->
+<!--            <button class="button button1"><a type="submit" class="link_button">Cadastrar</a></button>-->
+<!--          </div>-->
+<!--          <div class="col-md">-->
+<!--          -->
+<!--          </div>-->
+<!--        </div>-->
     
       </div>
 
