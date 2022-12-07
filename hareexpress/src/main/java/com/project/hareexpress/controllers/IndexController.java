@@ -7,9 +7,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
+
+    private static  String urlCliente = "/templates/cliente/cliente_meusdados.html";
+
     @RequestMapping("/")
     public ModelAndView show(){
         ModelAndView mv = new ModelAndView("index");
         return mv;
     }
+
 }
