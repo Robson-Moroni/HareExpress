@@ -4,6 +4,7 @@ import com.project.hareexpress.domain.repositories.UserRepository;
 import com.project.hareexpress.services.IUserService;
 import com.project.hareexpress.domain.models.User;
 import com.project.hareexpress.domain.models.dto.SignUpDTO;
+import com.project.hareexpress.utils.Cryptography;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/user")
@@ -33,8 +35,17 @@ public class UserController {
     }
 
     @RequestMapping(value = "/saveUser", method= RequestMethod.POST)
-    public String save(User user) {
-        userRepository.save(user);
+    public String save(@Valid User user) {
+
+        if(Objects.nonNull(user)){
+
+            String passwordCryptography = Cryptography.encoderPassword(user.getPassword());
+
+            user.setSenha(passwordCryptography);
+
+            userRepository.save(user);
+        }
+
         return "login";
     }
 

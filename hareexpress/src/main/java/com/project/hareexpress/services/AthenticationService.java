@@ -15,7 +15,7 @@ public class AthenticationService {
     private UserRepository userRepository;
 
     public boolean isAuthetatic(SignUpDTO login){
-       User user = userRepository.findFirstByEmail(login.getEmail());
+       User user = userRepository.findFirstByLogin(login.getEmail());
        return Cryptography.matcherPassword(login.getSenha(), user.getSenha());
     }
 

@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 public class Cryptography {
 
@@ -33,6 +34,12 @@ public class Cryptography {
 		return encoder.matches(password, encodePassword);
 	}
 
+
+	public static String encoderPassword(String password){
+
+		BCryptPasswordEncoder encoderPassWord = new BCryptPasswordEncoder();
+		return encoderPassWord.encode(password);
+	}
 
 
 
