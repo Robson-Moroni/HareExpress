@@ -32,7 +32,7 @@ public class LoginController {
 
         ModelAndView mv = new ModelAndView();
          if(authenticationService.isAuthetatic(login)){
-              mv.setViewName("/cliente/cliente_meusdados");
+              mv.setViewName("/cliente/solicitar_entrega1");
             return mv;
         }
             mv.setViewName("login");
