@@ -14,10 +14,10 @@ public class Pedido {
     private Integer id;
 
     @Column(name = "endereco_entrega")
-    private Endereco entrega;
+    private String entrega;
 
     @Column(name = "endereco_retirada")
-    private Endereco retirada;
+    private String retirada;
 
     @ManyToOne
     @JoinColumn(name = "id_solicitante")

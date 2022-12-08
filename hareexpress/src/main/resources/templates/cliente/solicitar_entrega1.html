@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -42,10 +43,11 @@
       <div class="divisor"></div>
       <div class="col-sm">
         <h3>Dados do local de <b>Retirada</b></h3><br>
-        <form th:object>
+        <form th:object="${pedido}" th:action="@{/pedido/create}">
           <div class="form-group">
             <label for="endereco_retirada">Endereço</label>
-            <input type="text" class="form-control" id="endereco_retirada" aria-describedby="endereHelp" placeholder="R. Bela Cintra, 986">
+            <input type="text" class="form-control" id="endereco_retirada" aria-describedby="endereHelp" placeholder="R. Bela Cintra, 986"
+            th:field="">
           </div>
           <br>
           <div class="form-group">
