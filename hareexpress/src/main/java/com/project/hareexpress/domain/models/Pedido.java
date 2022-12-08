@@ -13,13 +13,10 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
-    @ManyToOne
-    @JoinColumn(name = "id_endereco_entrega")
+    @Column(name = "endereco_entrega")
     private Endereco entrega;
 
-    @ManyToOne
-    @JoinColumn(name = "id_endereco_retirada")
+    @Column(name = "endereco_retirada")
     private Endereco retirada;
 
     @ManyToOne
