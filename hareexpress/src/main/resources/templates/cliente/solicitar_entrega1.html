@@ -42,28 +42,39 @@
       <div class="divisor"></div>
       <div class="col-sm">
         <h3>Dados do local de <b>Retirada</b></h3><br>
-        <form>
+        <form th:object>
           <div class="form-group">
             <label for="endereco_retirada">Endereço</label>
-            <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp" placeholder="R. Bela Cintra, 986">
+            <input type="text" class="form-control" id="endereco_retirada" aria-describedby="endereHelp" placeholder="R. Bela Cintra, 986">
           </div>
           <br>
           <div class="form-group">
-            <label for="nome_completo">Complemento</label>
-            <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp" placeholder="ao lado do supermercado">
+            <label for="completo">Complemento</label>
+            <input type="text" class="form-control" id="completo" aria-describedby="emailHelp" placeholder="ao lado do supermercado">
           </div>
-        </form>
         <br><br><br>
         <h3>Dados do local de <b>Entrega</b></h3><br>
-        <form>
           <div class="form-group">
-            <label for="nome_completo">Endereço</label>
-            <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp" placeholder="Av. Paulista, 1146 - Bela Vista">
+            <label for="endereco_entrega">Endereço</label>
+            <input type="text" class="form-control" id="endereco_entrega" aria-describedby="emailHelp" placeholder="Av. Paulista, 1146 - Bela Vista">
           </div>
           <br>
           <div class="form-group">
-            <label for="nome_completo">Complemento</label>
-            <input type="text" class="form-control" id="nome_completo" aria-describedby="emailHelp" placeholder="ao lado do MASP">
+            <label for="complemento">Complemento</label>
+            <input type="text" class="form-control" id="complemento" aria-describedby="emailHelp" placeholder="ao lado do MASP">
+          </div>
+
+
+          <div class="row">
+            <div class="col-md">
+            </div>
+            <div class="col-md" align="center">
+              <a type="submit" class="btn button1">Continuar</a>
+
+            </div>
+            <div class="col-md">
+
+            </div>
           </div>
         </form> 
       </div>
@@ -71,19 +82,7 @@
       
     </div>
 
-    <div class="divisor"></div>
 
-    <div class="row">
-      <div class="col-md">
-      </div>
-      <div class="col-md" align="center">
-        <a type="button" class="btn button1" href="solicitar_entrega2.html">Continuar</a>
-        
-      </div>
-      <div class="col-md">
-      
-      </div>
-    </div>
 
   </div>
   

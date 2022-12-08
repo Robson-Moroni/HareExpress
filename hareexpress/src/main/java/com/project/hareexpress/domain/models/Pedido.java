@@ -23,7 +23,6 @@ public class Pedido {
     @JoinColumn(name = "id_solicitante")
     private Pessoa solicitante;
 
-
     @ManyToOne
     @JoinColumn(name = "id_entregador")
     private Pessoa entregador;
