@@ -37,58 +37,54 @@
 
             </div>
         </div>
-        <div class="row">
+        <form th:object="${pedido}" th:action="@{/pedido/create}" th:method="POST">
+         <div class="row">
             <div class="divisor"></div>
-            <div class="col-sm">
+             <input type="hidden" th:value="*{etapa}" name="etapa">
+             <input type="hidden" th:value="*{dsPedido}" name="dsPedido">
+             <input type="hidden" th:value="*{solicitante}" name="solicitante">
+             <input type="hidden" th:value="*{entrega}" name="entrega">
+             <input type="hidden" th:value="*{retirada}" name="retirada">
+             <input type="hidden" th:value="*{complementoEntrega}" name="complementoEntrega">
+             <input type="hidden" th:value="*{complementoRetirada}" name="complementoRetirada">
+
+
+             <div class="col-sm">
                 <h3><b>Revisando o pedido</b></h3><br>
                 <div>
                     <h4><b> Com quem devemos retirar o seu pedido?</b></h4>
-                    <h5>João da Silva Sauro</h5>
+                    <h5 th:text="*{solicitante}"></h5>
 
                 </div>
                 <br>
                 <div>
                     <h4><b>O que o entregador deve retirar?</b></h4>
-                    <h5>Caixa de dimensões X, Y, Z e peso W</h5>
+                    <h5 th:text="*{dsPedido}"></h5>
                 </div>
+                <br>
+                <div>
+                    <h4><b>Onde o entregador deve retirar o pedido?</b></h4>
+                    <h5 th:text="*{retirada}"></h5>
+                </div>
+                <br>
+                <div>
+                    <h4><b>Onde o entregador deve entregar o pedido?</b></h4>
+                    <h5 th:text="*{entrega}"></h5>
+                </div>
+
             </div>
         </div>
         <div class="divisor"></div>
         <br><br>
         <div class="row">
-            <div class="divisor"></div>
-            <div class="col-sm" align="center">
-                <h5><b>Previsão de entrega</b></h5><br>
-                <div>
-                    <b>PLACEHOLDER</b>
-                </div>
-            </div>
-            <div class="col-sm" align="center">
-                <h5><b>Distância</b></h5><br>
-                <div>
-                    <b>PLACEHOLDER</b>
-                </div>
-            </div>
-            <div class="col-sm" align="center">
-                <h5><b>Total a Pagar</b></h5><br>
-                <div>
-                    <b>PLACEHOLDER</b>
-                </div>
-            </div>
-        </div>
-
-        <div class="divisor"></div>
-
-        <div class="row">
             <div class="col-md">
             </div>
             <div class="col-md" align="center">
-                <button class="button button1"><a href="solicitar_entrega1.html">Editar o pedido</a></button>
-            </div>
-            <div class="col-md" align="center">
-                <button class="button button1"><a href="solicitar_entrega4.html">Confirmar Pedido</a></button>
+                <button class="btn button1"><a type="submit">Confirmar Pedido</a></button>
             </div>
         </div>
+
+        </form>
     </div>
 
 </body>

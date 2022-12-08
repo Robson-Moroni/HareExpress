@@ -46,15 +46,20 @@
 
           <input type="hidden" th:value="*{etapa}" name="etapa">
 
+          <input type="hidden" th:value="*{entrega}" name="entrega">
+          <input type="hidden" th:value="*{retirada}" name="retirada">
+          <input type="hidden" th:value="*{complementoEntrega}" name="complementoEntrega">
+          <input type="hidden" th:value="*{complementoRetirada}" name="complementoRetirada">
+
           <div class="form-group">
             <label for="pessoa_retirada">Com quem devemos retirar o seu pedido?</label>
             <input type="text" class="form-control" id="pessoa_retirada" aria-describedby="emailHelp"
-                   placeholder="Ex:João da Silva Sauro">
+                   placeholder="Ex:João da Silva Sauro" th:field="*{solicitante}">
           </div>
           <br>
           <div class="form-group">
             <label for="item_retirada">O que o entregador deve retirar?</label>
-            <textarea class="form-control" id="item_retirada" rows="5"
+            <textarea th:field="*{dsPedido}" typeof="text" class="form-control" id="item_retirada" rows="5"
                       placeholder="Descreva o seu produto com detalhes:'É uma caixa com 20cm de altura, 30cm de Largura e 15cm de profundidade.'"></textarea>
           </div>
 

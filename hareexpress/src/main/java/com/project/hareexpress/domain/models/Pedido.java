@@ -31,12 +31,15 @@ public class Pedido {
 
     @NotNull
     @Column(name = "ds_pedido")
-    private String pedido;
+    private String dsPedido;
 
-    @Transient
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "complemento_entrega")
     private String complementoEntrega;
 
-    @Transient
+    @Column(name = "complemento_retirada")
     private String complementoRetirada;
 
     @Transient

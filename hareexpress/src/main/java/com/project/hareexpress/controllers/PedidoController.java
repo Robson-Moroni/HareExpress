@@ -20,6 +20,15 @@ public class PedidoController {
     @Autowired
     private PedidoRepository pedidoRepository;
 
+    @GetMapping("/new")
+    public ModelAndView novo(){
+        ModelAndView mv = new ModelAndView("/cliente/detalhes_entrega");
+
+        Pedido p = new Pedido();
+        p.setEtapa(1);
+        mv.addObject("pedido", p);
+        return mv;
+    }
 
     @PostMapping("/create")
     public ModelAndView create(@Valid Pedido pedido) {
@@ -42,16 +51,15 @@ public class PedidoController {
                     mv.addObject("pedido", pedido);
                     break;
 
-
                 case 3:
-
                     if (Objects.nonNull(pedidoRepository.save(pedido))) {
 
                         mv.setViewName("/cliente/detalhes_entrega");
+                        pedido.setStatus("Aprovado");
                         mv.addObject("pedido", pedido);
 
                     } else {
-                        mv.setViewName("cliente/solicitar_entrega3");
+                        mv.setViewName("/cliente/solicitar_entrega3");
                         mv.addObject("error", "Algo deu errado ao salvar as informações, tente novamente!");
                         mv.addObject("pedido", pedido);
                     }
