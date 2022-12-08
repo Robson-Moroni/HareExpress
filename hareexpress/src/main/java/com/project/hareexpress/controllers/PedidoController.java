@@ -22,21 +22,44 @@ public class PedidoController {
 
 
     @PostMapping("/create")
-    public ModelAndView create(@Valid Pedido pedido){
+    public ModelAndView create(@Valid Pedido pedido) {
 
         ModelAndView mv = new ModelAndView();
 
-        if(Objects.nonNull(pedidoRepository.save(pedido))){
-            mv.setViewName("/cliente/solicitar_entrega2");
-            mv.addObject("pedido", pedido);
-        }else {
-            mv.setViewName("cliente/solicitar_entrega1");
-            mv.addObject("error", "Algo deu errado ao salvar as informações, tente novamente!");
+        Integer etapa = pedido.getEtapa();
+        if (Objects.nonNull(etapa)) {
+            switch (etapa) {
+
+                case 1:
+                    pedido.setEtapa(2);
+                    mv.setViewName("/cliente/solicitar_entrega2");
+                    mv.addObject("pedido", pedido);
+                    break;
+
+                case 2:
+                    pedido.setEtapa(3);
+                    mv.setViewName("/cliente/solicitar_entrega3");
+                    mv.addObject("pedido", pedido);
+                    break;
+
+
+                case 3:
+
+                    if (Objects.nonNull(pedidoRepository.save(pedido))) {
+
+                        mv.setViewName("/cliente/detalhes_entrega");
+                        mv.addObject("pedido", pedido);
+
+                    } else {
+                        mv.setViewName("cliente/solicitar_entrega3");
+                        mv.addObject("error", "Algo deu errado ao salvar as informações, tente novamente!");
+                        mv.addObject("pedido", pedido);
+                    }
+                    break;
+
+            }
         }
-        return mv ;
 
-
+        return mv;
     }
-
-
 }

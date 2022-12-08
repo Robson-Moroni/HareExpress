@@ -1,6 +1,7 @@
 package com.project.hareexpress.controllers;
 
 
+import com.project.hareexpress.domain.models.Pedido;
 import com.project.hareexpress.domain.models.User;
 import com.project.hareexpress.domain.models.dto.LoginDTO;
 import com.project.hareexpress.domain.models.dto.SignUpDTO;
@@ -32,7 +33,10 @@ public class LoginController {
 
         ModelAndView mv = new ModelAndView();
          if(authenticationService.isAuthetatic(login)){
+              Pedido pedido = new Pedido ();
+              pedido.setEtapa(1);
               mv.setViewName("/cliente/solicitar_entrega1");
+              mv.addObject(pedido);
             return mv;
         }
             mv.setViewName("login");
