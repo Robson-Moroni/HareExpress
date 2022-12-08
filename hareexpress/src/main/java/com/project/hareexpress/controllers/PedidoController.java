@@ -22,10 +22,11 @@ public class PedidoController {
 
     @GetMapping("/new")
     public ModelAndView novo(){
-        ModelAndView mv = new ModelAndView("/cliente/detalhes_entrega");
+        ModelAndView mv = new ModelAndView("/cliente/solicitar_entrega1");
 
         Pedido p = new Pedido();
         p.setEtapa(1);
+
         mv.addObject("pedido", p);
         return mv;
     }
