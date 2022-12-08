@@ -22,9 +22,9 @@
       <img src="src/image_3.png" class="img_fluid" alt="image 4.png">
     </a>
 
-    <ul class="nav">
+    <!--<ul class="nav">
       <li class="nav-item"><a href="paginaInicial.html" class="nav-link button button1" aria-current="page">Já sou Cadastrado</a></li>
-    </ul>
+    </ul>-->
   </header>
 
 
@@ -43,27 +43,33 @@
       <div class="divisor"></div>
       <div class="col-sm">
         <h3>Dados do local de <b>Retirada</b></h3><br>
-        <form th:object="${pedido}" th:action="@{/pedido/create}">
+        <form th:object="${pedido}" th:action="@{/pedido/create}" th:method="POST">
+
+          <input type="hidden" th:value="*{etapa}" name="etapa">
+
           <div class="form-group">
             <label for="endereco_retirada">Endereço</label>
             <input type="text" class="form-control" id="endereco_retirada" aria-describedby="endereHelp" placeholder="R. Bela Cintra, 986"
-            th:field="">
+            th:field="*{retirada}">
           </div>
           <br>
           <div class="form-group">
             <label for="completo">Complemento</label>
-            <input type="text" class="form-control" id="completo" aria-describedby="emailHelp" placeholder="ao lado do supermercado">
+            <input type="text" class="form-control" id="completo" aria-describedby="emailHelp" placeholder="ao lado do supermercado"
+            th:field="*{complementoEntrega}">
           </div>
         <br><br><br>
         <h3>Dados do local de <b>Entrega</b></h3><br>
           <div class="form-group">
             <label for="endereco_entrega">Endereço</label>
-            <input type="text" class="form-control" id="endereco_entrega" aria-describedby="emailHelp" placeholder="Av. Paulista, 1146 - Bela Vista">
+            <input type="text" class="form-control" id="endereco_entrega" aria-describedby="emailHelp" placeholder="Av. Paulista, 1146 - Bela Vista"
+            th:field="*{entrega}">
           </div>
           <br>
           <div class="form-group">
             <label for="complemento">Complemento</label>
-            <input type="text" class="form-control" id="complemento" aria-describedby="emailHelp" placeholder="ao lado do MASP">
+            <input type="text" class="form-control" id="complemento" aria-describedby="emailHelp" placeholder="ao lado do MASP"
+            th:field="*{complementoEntrega}">
           </div>
 
 
@@ -71,7 +77,7 @@
             <div class="col-md">
             </div>
             <div class="col-md" align="center">
-              <a type="submit" class="btn button1">Continuar</a>
+             <button class="btn button1"><a type="submit">Continuar</a></button>
 
             </div>
             <div class="col-md">
